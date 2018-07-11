@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>react-demo-8</title>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+</head>
+<body>
+<style></style>
+<div id="example"></div>
+
+<script type="text/babel">
+    const LikeButton = React.createClass({
+        getInitialState: function() {
+            return {liked: false}
+        },
+        handleClick: function () {
+            this.setState({liked: !this.state.liked})
+        },
+        render: function () {
+            const text = this.state.liked ? 'like' : 'hated'
+            return (
+                <p onClick={this.handleClick}>
+                    You {text} this. Click to toggle.
+                </p>
+            )
+
+        }
+    })
+    ReactDOM.render(
+        <LikeButton />,
+        document.getElementById('example')
+    )
+</script>
+</body>
+</html>
